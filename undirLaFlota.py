@@ -1,42 +1,42 @@
 import random
-
+import tablero
 
 #-------CLASE TABLERO--------------
-#TODO: refactorizar en una clase
+# #TODO: refactorizar en una clase
 
-#genera un tablero de arrays de alto x largo
-#deberia permtir cualquier valor dentro de estas
-def genTablero(alto, ancho):
-    #TODO descomentar cuando se refactorie en un aclase
-    cuadricula = []
-    for x in range(ancho):
-        cuadricula.append([])
+# #genera un tablero de arrays de alto x largo
+# #deberia permtir cualquier valor dentro de estas
+# def genTablero(alto, ancho):
+#     #TODO descomentar cuando se refactorie en un aclase
+#     cuadricula = []
+#     for x in range(ancho):
+#         cuadricula.append([])
 
-    for i in cuadricula:
-        for y in range(alto):        
-            i.append([])
-    return(cuadricula)
+#     for i in cuadricula:
+#         for y in range(alto):
+#             i.append([])
+#     return(cuadricula)
 
-#asigna el item a la casilla x,y 
-def setCasilla(posX, posY, item, cuadricula):
-    cuadricula[posX][posY] = item
-    return cuadricula
+# #asigna el item a la casilla x,y 
+# def setCasilla(posX, posY, item, cuadricula):
+#     cuadricula[posX][posY] = item
+#     return cuadricula
 
-#return el item en la casilla
-def getCasilla(posX, posY, cuadricula):
-    return cuadricula[posX][posY]
+# #return el item en la casilla
+# def getCasilla(posX, posY, cuadricula):
+#     return cuadricula[posX][posY]
 
-#llena todos los espacios del array de item
-def fillWhitItem(item, cuadricula):
-    for x in cuadricula:
-        for y in range(len(cuadricula)):
-            setCasilla(x,y,item)
+# #llena todos los espacios del array de item
+# def fillWhitItem(item, cuadricula):
+#     for x in cuadricula:
+#         for y in range(len(cuadricula)):
+#             setCasilla(x,y,item)
 
-#devuelve la cantidad de casillas totales
-def espacioLibre(cuadricula):
-    total = len(cuadricula) #x
-    total = total * len(cuadricula[0])#y    #TODO:no me gusta el 0 
-    return total
+# #devuelve la cantidad de casillas totales
+# def espacioLibre(cuadricula):
+#     total = len(cuadricula) #x
+#     total = total * len(cuadricula[0])#y    #TODO:no me gusta el 0 
+#     return total
 
 #--------------------------
 
@@ -58,14 +58,15 @@ longDestructores = 2
 #no pueden superponerse dos barcos en una misma casilla,
 #ni salirse del tablero
 
-
+#colocare los barcos en posicion horizontal o vertical , donde caiga empujare
+#hacia dentro del tablero
 
 
 #caben los barcos?
 #compara el espacio de los barcos con el espacio de la cuadricula
 #true si hay espacio false si no
 def hayEspacio (cuadricula):
-    espacioCuadricula = espacioLibre(cuadricula)
+    espacioCuadricula = tablero.espacioLibre(cuadricula)
     espacioBarcos = espacioNaves()
     return True if espacioCuadricula < espacioBarcos else False
 
@@ -80,22 +81,60 @@ def espacioNaves():
     return total
 
 
-#usa las variables de cantX y longX de los barcos
-def colocarNaves(cuadricula):
 
-    if hayEspacio(cuadricula):
-        #TODO sacar texto
-        raise Exception("no hay espacio en el tablero para colocar los barcos")
+def colocarNaves(longitud, cantidad, tablero):
+    """
+    marca desde una posicion aleatoria vertical u horizontal en la tablero
+    y marca en longitud, si superpone busca otro sitio aleatorio
     
-    
+    :param longitud: longitud a marcar
+    :param cantidad: distintas marcas a realizar
+    :param tablero: tablero a marcar
+    """
+    for i in range(cantidad):
+        #seed de las posiciones
+        posX = random(0, tablero.ancho())
+        posY = random(0, tablero.alto())
+        horizontal = esHorizontal()
+
+        #arreglando las posiciones que se salen fuera de los bordes
+        #empujarlos hacia dentro
+        if horizontal:
+            #horinzontal X
+            if posX + longitud > tablero.ancho():
+                posX = (posX + longitud) - tablero.ancho()
+        else:
+            #vertical Y
+            if posY + longitud > tablero.alto():
+                posY = (posY + longitud) - tablero.alto()
+
+        #comprobar superposicion de barcos
+        superposicion = False
+        if horizontal:
+            #horizontal
+            for x in range( posX, posX + longitud):
+                if tablero.getCasilla(x, posY) == SHIP_SIN_TOCAR:
+                    
+        else:
+            #vertical
 
 
 
-
-
+def esHorizontal():
+    """
+    decide de manera aleatoria 50% entre true o false
+    """
+    if random(0,1) == 1:
+        return True
+    else:
+        return False
+        
 
 #-------CLASE JUEGO--------------
 
 
+WATER = "O"
+SHIP_TOCADA  = "X"
+SHIP_SIN_TOCAR = "T"
 
 
