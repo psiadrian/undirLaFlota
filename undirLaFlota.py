@@ -117,7 +117,7 @@ def asignarHueco(posX, posY, longitud, esHorizontal, tablero):
         else:
             tablero.setCasilla(posX, posY + i, HAY_BARCO)
 
-def colocarNaves(longitud, tablero):
+def crearNave(longitud, tablero):
     """
     marca desde una posicion aleatoria vertical u horizontal en la tablero
     y marca en longitud, si superpone busca otro sitio aleatorio
@@ -146,7 +146,7 @@ def colocarNaves(longitud, tablero):
     if hayHueco(posX, posY, longitud, horizontal, tablero):
         asignarHueco(posX, posY, longitud, horizontal, tablero)
     else:
-        colocarNaves(longitud, tablero)
+        crearNave(longitud, tablero)
 
 
 def esHorizontal():
@@ -185,6 +185,6 @@ def imprimirTablero(tablero):
 
 
 
-tablero = colocarNaves()
+tablero = crearNave()
 
 imprimirTablero(tablero)
