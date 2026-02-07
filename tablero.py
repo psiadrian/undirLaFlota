@@ -7,7 +7,7 @@ class tablero:
 
         for i in self.cuadricula:
             for y in range(alto):        
-                i.append()
+                i.append("")
 
 
         # for x in range(ancho):
