@@ -3,19 +3,15 @@ class tablero:
     def __init__(self, alto, ancho):
         self.alto = alto
         self.ancho = ancho
-        # self.cuadricula = []
+       
+        self.cuadricula = []
+        for x in range(alto):
+            temp = []
+            for y in range(ancho):
+                temp.append("")
+            self.cuadricula.append(temp)
+        
 
-        for i in self.cuadricula:
-            for y in range(alto):        
-                i.append("")
-
-
-        # for x in range(ancho):
-        #     self.cuadricula.append([])
-
-        # for i in self.cuadricula:
-        #     for y in range(alto):        
-        #         i.append([])
         # dado por la ia
         #self.cuadricula = [ [ [] for _ in range(alto) ] for _ in range(ancho) ]
 
