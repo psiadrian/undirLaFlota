@@ -60,7 +60,18 @@ LONG_DESTRUCTORES = 2
 
 #colocare los barcos en posicion horizontal o vertical , donde caiga empujare
 #hacia dentro del tablero
-
+def colocarBarcos(tablero):
+    """
+    recoge los datos de cantidad y longitud de los barcos
+    
+    :param tablero:
+    """
+    for i in range(CANT_PORTAVIONES):
+        crearNave(LONG_PORTAVIONES)
+    for i in range(CANT_SUBMARINOS):
+        crearNave(LONG_SUBMARINOS)
+    for i in range(CANT_DESTRUCTORES):
+        crearNave(LONG_DESTRUCTORES)
 
 #caben los barcos?
 #compara el espacio de los barcos con el espacio de la cuadricula
@@ -185,6 +196,6 @@ def imprimirTablero(tablero):
 
 
 
-tablero = crearNave()
+tablero = colocarBarcos()
 
 imprimirTablero(tablero)
