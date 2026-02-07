@@ -3,12 +3,21 @@ class tablero:
     def __init__(self, alto, ancho):
         self.alto = alto
         self.ancho = ancho
-        for x in range(ancho):
-            self.cuadricula.append([])
+        # self.cuadricula = []
 
         for i in self.cuadricula:
             for y in range(alto):        
-                i.append([])
+                i.append()
+
+
+        # for x in range(ancho):
+        #     self.cuadricula.append([])
+
+        # for i in self.cuadricula:
+        #     for y in range(alto):        
+        #         i.append([])
+        # dado por la ia
+        #self.cuadricula = [ [ [] for _ in range(alto) ] for _ in range(ancho) ]
 
     #asigna el item a la casilla x,y 
     def setCasilla(self, posX, posY, item):
