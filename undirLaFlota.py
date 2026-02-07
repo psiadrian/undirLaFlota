@@ -101,6 +101,21 @@ def hayHueco(posX, posY, longitud, esHorizontal, tablero):
                 sePuede = False
     return sePuede
 
+def asignarHueco(posX, posY, longitud, esHorizontal, tablero):
+    """
+    asgina los espacios a un barco en el tablero
+    
+    :param posX: 
+    :param posY: 
+    :param longitud: largo del barco
+    :param esHorizontal: crece en horizontal o vertical
+    :param tablero: array bidimensional a modificar
+    """
+    for i in range(0, longitud):
+        if esHorizontal:
+            tablero.setCasilla(posX + i, posY, HAY_BARCO)
+        else:
+            tablero.setCasilla(posX, posY + i, HAY_BARCO)
 
 def colocarNaves(longitud, tablero):
     """
@@ -128,7 +143,8 @@ def colocarNaves(longitud, tablero):
             posY = (posY + longitud) - tablero.alto()
 
     #comprobar superposicion de barcos
-    
+    if hayHueco(posX, posY, longitud, horizontal, tablero):
+        asignarHueco(posX, posY, longitud, horizontal, tablero)
 
 
 def esHorizontal():
@@ -146,6 +162,7 @@ def esHorizontal():
 
 WATER = "O"
 SHIP_TOCADA  = "X"
+HAY_BARCO = "1"
 FONDO_TABLERO = "~"
 
 
