@@ -149,6 +149,6 @@ def esHorizontal():
 
 WATER = "O"
 SHIP_TOCADA  = "X"
-SHIP_SIN_TOCAR = "T"
+FONDO_TABLERO = "~"
 
 
