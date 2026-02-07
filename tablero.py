@@ -1,7 +1,4 @@
 class tablero:
-    alto = 0
-    ancho = 0
-    cuadricula =[]
 
     def __init__(self, alto, ancho):
         self.alto = alto
