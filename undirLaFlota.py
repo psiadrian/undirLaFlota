@@ -145,6 +145,8 @@ def colocarNaves(longitud, tablero):
     #comprobar superposicion de barcos
     if hayHueco(posX, posY, longitud, horizontal, tablero):
         asignarHueco(posX, posY, longitud, horizontal, tablero)
+    else:
+        colocarNaves(longitud, tablero)
 
 
 def esHorizontal():
@@ -157,6 +159,9 @@ def esHorizontal():
         return False
         
 
+
+
+
 #-------CLASE JUEGO--------------
 
 
@@ -166,3 +171,20 @@ HAY_BARCO = "1"
 FONDO_TABLERO = "~"
 
 
+
+#-----------probando el codigo------------------
+
+def imprimirTablero(tablero):
+    """
+    imprime el tablero por pantalla
+    
+    :param tablero: array a imprimir
+    """
+
+    print(tablero)
+
+
+
+tablero = colocarNaves()
+
+imprimirTablero(tablero)
