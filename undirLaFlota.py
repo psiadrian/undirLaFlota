@@ -180,7 +180,8 @@ WATER = "O"
 SHIP_TOCADA  = "X"
 HAY_BARCO = "1"
 FONDO_TABLERO = "~"
-
+DIMENSION_MATRIZ_X = 10
+DIMENSION_MATRIZ_Y = 10
 
 
 #-----------probando el codigo------------------
@@ -195,7 +196,7 @@ def imprimirTablero(tablero):
     print(tablero)
 
 
-
-tablero = colocarBarcos()
+mapa = tablero(DIMENSION_MATRIZ_X, DIMENSION_MATRIZ_Y)
+colocarBarcos()
 
 imprimirTablero(tablero)
