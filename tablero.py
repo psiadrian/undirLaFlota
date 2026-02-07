@@ -35,7 +35,7 @@ class tablero:
                 self.setCasilla(x,y,item)
 
     #devuelve la cantidad de casillas totales
-    def espacioLibre(self):
+    def espacioTotal(self):
         return len(self.cuadricula) * len(self.cuadricula[0])
     
     def getAncho(self):

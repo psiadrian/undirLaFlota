@@ -33,7 +33,7 @@ import tablero
 #             setCasilla(x,y,item)
 
 # #devuelve la cantidad de casillas totales
-# def espacioLibre(cuadricula):
+# def espacioTotal(cuadricula):
 #     total = len(cuadricula) #x
 #     total = total * len(cuadricula[0])#y    #TODO:no me gusta el 0 
 #     return total
@@ -77,7 +77,7 @@ def colocarBarcos(tablero):
 #compara el espacio de los barcos con el espacio de la cuadricula
 #true si hay espacio false si no
 def hayEspacio (cuadricula):
-    espacioCuadricula = tablero.espacioLibre(cuadricula)
+    espacioCuadricula = tablero.espacioTotal(cuadricula)
     espacioBarcos = espacioNaves()
     return True if espacioCuadricula < espacioBarcos else False
 
