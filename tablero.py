@@ -26,7 +26,7 @@ class tablero:
 
     #llena todos los espacios del array de item
     def fillWhitItem(self, item):
-        for x in self.cuadricula:
+        for x in range(len(self.cuadricula)):
             for y in range(len(self.cuadricula)):
                 self.setCasilla(x,y,item)
 
