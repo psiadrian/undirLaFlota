@@ -45,14 +45,14 @@ import tablero
 
 #longitud y cantidad de los barcos
 #TODO: modificar como se generan la informacion de los barcos 
-cantPortaviones = 1
-longPortaviones = 4
+CANT_PORTAVIONES = 1
+LONG_PORTAVIONES = 4
 
-cantSubmarinos = 2
-longSubmarinos = 3
+CANT_SUBMARINOS = 2
+LONG_SUBMARINOS = 3
 
-cantDestructores = 3
-longDestructores = 2
+CANT_DESTRUCTORES = 3
+LONG_DESTRUCTORES = 2
 
 #coloca los barcos manera aleatoria en el tablero,
 #no pueden superponerse dos barcos en una misma casilla,
@@ -75,9 +75,9 @@ def hayEspacio (cuadricula):
 def espacioNaves():
     #TODO refactorizar
     total = 0
-    total = total + cantPortaviones * longPortaviones
-    total = total + cantSubmarinos * longSubmarinos
-    total = total + cantDestructores *longDestructores
+    total = total + CANT_PORTAVIONES * LONG_PORTAVIONES
+    total = total + CANT_SUBMARINOS * LONG_SUBMARINOS
+    total = total + CANT_DESTRUCTORES *LONG_DESTRUCTORES
     return total
 
 
