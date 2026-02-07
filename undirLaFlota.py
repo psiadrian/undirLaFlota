@@ -1,5 +1,5 @@
 import random
-import tablero
+from tablero import tablero 
 
 #-------CLASE TABLERO--------------
 # #TODO: refactorizar en una clase
@@ -197,6 +197,6 @@ def imprimirTablero(tablero):
 
 
 mapa = tablero(DIMENSION_MATRIZ_X, DIMENSION_MATRIZ_Y)
-colocarBarcos()
+#colocarBarcos()
 
 imprimirTablero(tablero)
