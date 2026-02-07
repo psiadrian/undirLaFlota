@@ -183,20 +183,22 @@ FONDO_TABLERO = "~"
 DIMENSION_MATRIZ_X = 10
 DIMENSION_MATRIZ_Y = 10
 
+mapa = tablero(DIMENSION_MATRIZ_X, DIMENSION_MATRIZ_Y)
+mapa.fillWhitItem(FONDO_TABLERO)
+
 
 #-----------probando el codigo------------------
 
-def imprimirTablero(tablero):
+def imprimirTablero():
     """
     imprime el tablero por pantalla
     
     :param tablero: array a imprimir
     """
 
-    print(tablero)
+    print(mapa)
 
 
-mapa = tablero(DIMENSION_MATRIZ_X, DIMENSION_MATRIZ_Y)
-#colocarBarcos()
 
-imprimirTablero(tablero)
+
+imprimirTablero()
