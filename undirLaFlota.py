@@ -92,7 +92,8 @@ def colocarNaves(longitud, cantidad, tablero):
     :param tablero: tablero a marcar
     """
     for i in range(cantidad):
-        #seed de las posiciones
+        #seed de las posiciones 
+        #establece un punto de inicio y si crece a la derecha o abajo segun longitud
         posX = random(0, tablero.ancho())
         posY = random(0, tablero.alto())
         horizontal = esHorizontal()
