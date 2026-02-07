@@ -102,43 +102,33 @@ def hayHueco(posX, posY, longitud, esHorizontal, tablero):
     return sePuede
 
 
-def colocarNaves(longitud, cantidad, tablero):
+def colocarNaves(longitud, tablero):
     """
     marca desde una posicion aleatoria vertical u horizontal en la tablero
     y marca en longitud, si superpone busca otro sitio aleatorio
     
     :param longitud: longitud a marcar
-    :param cantidad: distintas marcas a realizar
     :param tablero: tablero a marcar
     """
-    for i in range(cantidad):
-        #seed de las posiciones 
-        #establece un punto de inicio y si crece a la derecha o abajo segun longitud
-        posX = random(0, tablero.ancho())
-        posY = random(0, tablero.alto())
-        horizontal = esHorizontal()
+    #seed de las posiciones 
+    #establece un punto de inicio y si crece a la derecha o abajo segun longitud
+    posX = random(0, tablero.ancho())
+    posY = random(0, tablero.alto())
+    horizontal = esHorizontal()
 
-        #arreglando las posiciones que se salen fuera de los bordes
-        #empujarlos hacia dentro
-        if horizontal:
-            #horinzontal X
-            if posX + longitud > tablero.ancho():
-                posX = (posX + longitud) - tablero.ancho()
-        else:
-            #vertical Y
-            if posY + longitud > tablero.alto():
-                posY = (posY + longitud) - tablero.alto()
+    #arreglando las posiciones que se salen fuera de los bordes
+    #empujarlos hacia dentro
+    if horizontal:
+        #horinzontal X
+        if posX + longitud > tablero.ancho():
+            posX = (posX + longitud) - tablero.ancho()
+    else:
+        #vertical Y
+        if posY + longitud > tablero.alto():
+            posY = (posY + longitud) - tablero.alto()
 
-        #comprobar superposicion de barcos
-        superposicion = False
-        if horizontal:
-            #horizontal
-            for x in range( posX, posX + longitud):
-                if tablero.getCasilla(x, posY) == SHIP_SIN_TOCAR:
-                    
-        else:
-            #vertical
-
+    #comprobar superposicion de barcos
+    
 
 
 def esHorizontal():
