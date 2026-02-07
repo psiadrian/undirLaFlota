@@ -81,7 +81,7 @@ def espacioNaves():
     return total
 
 
-def hayHueco(posX, posy, longitud, esHorizontal, tablero):
+def hayHueco(posX, posY, longitud, esHorizontal, tablero):
     """
     Comprueba que se pueda colocar un barco en X,Y de longitud en el tablero
     RETURN TRUE si no hay otros barcos 
@@ -91,8 +91,15 @@ def hayHueco(posX, posy, longitud, esHorizontal, tablero):
     :param esHorizontal: determina si aumentar en posX (TRUE) o posY(FALSE) las comprobaciones
     :param tablero: cuadricula donde comprobar 
     """
-
-    
+    sePuede = True
+    for i in range(0, longitud):
+        if esHorizontal:
+            if tablero.getCasilla(posX + i, posY) != FONDO_TABLERO:
+                sePuede = False
+        else:
+            if tablero.getCasilla(posX, posY + i) != FONDO_TABLERO:
+                sePuede = False
+    return sePuede
 
 
 def colocarNaves(longitud, cantidad, tablero):
