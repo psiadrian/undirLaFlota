@@ -60,9 +60,9 @@ LONG_DESTRUCTORES = 2
 
 #colocare los barcos en posicion horizontal o vertical , donde caiga empujare
 #hacia dentro del tablero
-def colocarBarcos(tablero):
+def colocarBarcos():
     """
-    recoge los datos de cantidad y longitud de los barcos
+    recoge los datos de cantidad y longitud de los barcos y genera los barcos en mapa
     
     :param tablero:
     """
