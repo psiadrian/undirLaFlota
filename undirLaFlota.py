@@ -209,12 +209,12 @@ def imprimirJuego(matriz: tablero):
     print(linea)
 
     #resto de lineas
-    for x in range(mapa.ancho):
+    for x in range(matriz.ancho):
         linea=""
-        for y in range(mapa.alto):
+        for y in range(matriz.alto):
             if y == 0:
                 linea = linea + f"{x} "
-            linea= linea + mapa.getCasilla(x,y) + " "
+            linea= linea + matriz.getCasilla(x,y) + " "
         print(linea)
 
 
