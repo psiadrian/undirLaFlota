@@ -132,6 +132,26 @@ def esHorizontal():
     else:
         return False
         
+#-------------------------------------------------------
+
+
+#-------PEDIR DATOS AL USUARIO---------------
+
+#LENGUAJE
+LANG_ERROR_INSERT_NUMBER = "Inserta un numero valido"
+LANG_ERROR_REPEAT_INSERT_NUMBER = "El numero debe de estar entre"
+
+
+def pedirInt(min, max, mensaje):
+    while True:
+        try:
+            numero = int(input(mensaje))
+            if min <= numero <= max:
+                return numero
+            else:
+                print(LANG_ERROR_REPEAT_INSERT_NUMBER)
+        except ValueError:
+            print(LANG_ERROR_INSERT_NUMBER)
 
 
 
