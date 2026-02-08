@@ -141,6 +141,9 @@ def esHorizontal():
 LANG_ERROR_INSERT_NUMBER = "Inserta un numero valido"
 LANG_ERROR_REPEAT_INSERT_NUMBER = "El numero debe de estar entre"
 
+LANG_AGUA = "¡AGUA!"
+LANG_TOCADO = "¡TACADO!"
+
 
 def pedirInt(min, max, mensaje):
     while True:
@@ -165,6 +168,8 @@ HAY_BARCO = "1"
 FONDO_TABLERO = "~"
 DIMENSION_MATRIZ_X = 10
 DIMENSION_MATRIZ_Y = 10
+MUNICION = 50
+TURNO = 0
 
 #inicializar mapa de juego y colocar barcos
 mapa = tablero(DIMENSION_MATRIZ_X, DIMENSION_MATRIZ_Y)
