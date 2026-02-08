@@ -191,6 +191,12 @@ mapa = tablero(DIMENSION_MATRIZ_X, DIMENSION_MATRIZ_Y)
 mapa.fillWhitItem(FONDO_TABLERO)
 colocarBarcos()
 
+#tablero donde juega el jugaodor
+mapaJug = tablero(DIMENSION_MATRIZ_X, DIMENSION_MATRIZ_Y)
+mapaJug.fillWhitItem(FONDO_TABLERO)
+
+
+
 #-----------probando el codigo------------------
 
 def imprimirTablero():
