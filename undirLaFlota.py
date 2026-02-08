@@ -103,13 +103,16 @@ def hayHueco(posX, posY, longitud, esHorizontal):
     :param tablero: cuadricula donde comprobar 
     """
     sePuede = True
-    for i in range(0, longitud):
-        if esHorizontal:
-            if mapa.getCasilla(posX + i, posY) != FONDO_TABLERO:
-                sePuede = False
-        else:
-            if mapa.getCasilla(posX, posY + i) != FONDO_TABLERO:
-                sePuede = False
+    try:
+        for i in range(0, longitud):
+            if esHorizontal:
+                if mapa.getCasilla(posX + i, posY) != FONDO_TABLERO:
+                    sePuede = False
+            else:
+                if mapa.getCasilla(posX, posY + i) != FONDO_TABLERO:
+                    sePuede = False
+    except IndexError:
+        sePuede=False
     return sePuede
 
 def asignarHueco(posX, posY, longitud, esHorizontal):
