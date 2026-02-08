@@ -92,7 +92,7 @@ def espacioNaves():
     return total
 
 
-def hayHueco(posX, posY, longitud, esHorizontal, tablero):
+def hayHueco(posX, posY, longitud, esHorizontal):
     """
     Comprueba que se pueda colocar un barco en X,Y de longitud en el tablero
     RETURN TRUE si no hay otros barcos 
@@ -105,14 +105,14 @@ def hayHueco(posX, posY, longitud, esHorizontal, tablero):
     sePuede = True
     for i in range(0, longitud):
         if esHorizontal:
-            if tablero.getCasilla(posX + i, posY) != FONDO_TABLERO:
+            if mapa.getCasilla(posX + i, posY) != FONDO_TABLERO:
                 sePuede = False
         else:
-            if tablero.getCasilla(posX, posY + i) != FONDO_TABLERO:
+            if mapa.getCasilla(posX, posY + i) != FONDO_TABLERO:
                 sePuede = False
     return sePuede
 
-def asignarHueco(posX, posY, longitud, esHorizontal, tablero):
+def asignarHueco(posX, posY, longitud, esHorizontal):
     """
     asgina los espacios a un barco en el tablero
     
@@ -124,11 +124,11 @@ def asignarHueco(posX, posY, longitud, esHorizontal, tablero):
     """
     for i in range(0, longitud):
         if esHorizontal:
-            tablero.setCasilla(posX + i, posY, HAY_BARCO)
+            mapa.setCasilla(posX + i, posY, HAY_BARCO)
         else:
-            tablero.setCasilla(posX, posY + i, HAY_BARCO)
+            mapa.setCasilla(posX, posY + i, HAY_BARCO)
 
-def crearNave(longitud, tablero):
+def crearNave(longitud):
     """
     marca desde una posicion aleatoria vertical u horizontal en la tablero
     y marca en longitud, si superpone busca otro sitio aleatorio
@@ -138,33 +138,33 @@ def crearNave(longitud, tablero):
     """
     #seed de las posiciones 
     #establece un punto de inicio y si crece a la derecha o abajo segun longitud
-    posX = random(0, tablero.ancho())
-    posY = random(0, tablero.alto())
+    posX = random.randint(0, mapa.getAncho())
+    posY = random.randint(0, mapa.getAlto())
     horizontal = esHorizontal()
 
     #arreglando las posiciones que se salen fuera de los bordes
     #empujarlos hacia dentro
     if horizontal:
         #horinzontal X
-        if posX + longitud > tablero.ancho():
-            posX = (posX + longitud) - tablero.ancho()
+        if posX + longitud > mapa.getAncho():
+            posX = (posX + longitud) - mapa.getAncho()
     else:
         #vertical Y
-        if posY + longitud > tablero.alto():
-            posY = (posY + longitud) - tablero.alto()
+        if posY + longitud > mapa.getAlto():
+            posY = (posY + longitud) - mapa.getAlto()
 
     #comprobar superposicion de barcos
-    if hayHueco(posX, posY, longitud, horizontal, tablero):
-        asignarHueco(posX, posY, longitud, horizontal, tablero)
+    if hayHueco(posX, posY, longitud, horizontal):
+        asignarHueco(posX, posY, longitud, horizontal)
     else:
-        crearNave(longitud, tablero)
+        crearNave(longitud)
 
 
 def esHorizontal():
     """
     decide de manera aleatoria 50% entre true o false
     """
-    if random(0,1) == 1:
+    if random.randint(0,1) == 1:
         return True
     else:
         return False
@@ -183,9 +183,10 @@ FONDO_TABLERO = "~"
 DIMENSION_MATRIZ_X = 10
 DIMENSION_MATRIZ_Y = 10
 
+#inicializar mapa de juego y colocar barcos
 mapa = tablero(DIMENSION_MATRIZ_X, DIMENSION_MATRIZ_Y)
 mapa.fillWhitItem(FONDO_TABLERO)
-
+colocarBarcos()
 
 #-----------probando el codigo------------------
 
@@ -196,10 +197,14 @@ def imprimirTablero():
     :param tablero: array a imprimir
     """
 
+    
     for x in range(mapa.ancho):
+        linea=""
         for y in range(mapa.alto):
-            print(mapa.getCasilla(x,y))
-        print()
+            linea= linea + mapa.getCasilla(x,y)
+            #print(mapa.getCasilla(x,y))
+        print(linea)    
+        #print()
 
 
 imprimirTablero()
