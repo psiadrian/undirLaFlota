@@ -1,46 +1,6 @@
 import random
 from tablero import tablero 
 
-#-------CLASE TABLERO--------------
-# #TODO: refactorizar en una clase
-
-# #genera un tablero de arrays de alto x largo
-# #deberia permtir cualquier valor dentro de estas
-# def genTablero(alto, ancho):
-#     #TODO descomentar cuando se refactorie en un aclase
-#     cuadricula = []
-#     for x in range(ancho):
-#         cuadricula.append([])
-
-#     for i in cuadricula:
-#         for y in range(alto):
-#             i.append([])
-#     return(cuadricula)
-
-# #asigna el item a la casilla x,y 
-# def setCasilla(posX, posY, item, cuadricula):
-#     cuadricula[posX][posY] = item
-#     return cuadricula
-
-# #return el item en la casilla
-# def getCasilla(posX, posY, cuadricula):
-#     return cuadricula[posX][posY]
-
-# #llena todos los espacios del array de item
-# def fillWhitItem(item, cuadricula):
-#     for x in cuadricula:
-#         for y in range(len(cuadricula)):
-#             setCasilla(x,y,item)
-
-# #devuelve la cantidad de casillas totales
-# def espacioTotal(cuadricula):
-#     total = len(cuadricula) #x
-#     total = total * len(cuadricula[0])#y    #TODO:no me gusta el 0 
-#     return total
-
-#--------------------------
-
-
 #---------colocando barcos-------------
 
 #longitud y cantidad de los barcos
