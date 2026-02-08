@@ -196,9 +196,10 @@ def imprimirTablero():
     :param tablero: array a imprimir
     """
 
-    print(mapa)
-
-
+    for x in range(mapa.ancho):
+        for y in range(mapa.alto):
+            print(mapa.getCasilla(x,y))
+        print()
 
 
 imprimirTablero()
