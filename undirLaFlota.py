@@ -182,8 +182,8 @@ mapaJug.fillWhitItem(FONDO_TABLERO)
 
 
 
-#-----------probando el codigo------------------
 
+#-----------Imprimir juego--------------------
 def imprimirTablero():
     """
     imprime el tablero por pantalla
@@ -199,4 +199,33 @@ def imprimirTablero():
         print(linea)
 
 
-imprimirTablero()
+def imprimirJuego(matriz: tablero):
+
+    linea = " "
+    #primera linea
+    linea = linea + " "
+    for i in range(matriz.getAncho()):
+        linea = linea + f"{i} "
+    print(linea)
+
+    #resto de lineas
+    for x in range(mapa.ancho):
+        linea=""
+        for y in range(mapa.alto):
+            if y == 0:
+                linea = linea + f"{x} "
+            linea= linea + mapa.getCasilla(x,y) + " "
+        print(linea)
+
+
+
+
+#-----------Ejecutando el juego-----------------------
+
+def ejecutarJuego():
+    imprimirJuego(mapaJug)
+
+
+
+
+ejecutarJuego()
