@@ -205,9 +205,7 @@ def imprimirTablero():
         linea=""
         for y in range(mapa.alto):
             linea= linea + mapa.getCasilla(x,y)
-            #print(mapa.getCasilla(x,y))
-        print(linea)    
-        #print()
+        print(linea)
 
 
 imprimirTablero()
