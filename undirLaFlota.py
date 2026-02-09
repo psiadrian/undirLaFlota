@@ -52,7 +52,7 @@ def espacioNaves():
     return total
 
 
-def hayHueco(posX, posY, longitud, esHorizontal):
+def hayHueco(posX, posY, longitud, esHorizontal, matriz:tablero):
     """
     Comprueba que se pueda colocar un barco en X,Y de longitud en el tablero
     RETURN TRUE si no hay otros barcos 
@@ -66,16 +66,16 @@ def hayHueco(posX, posY, longitud, esHorizontal):
     try:
         for i in range(0, longitud):
             if esHorizontal:
-                if mapa.getCasilla(posX + i, posY) != FONDO_TABLERO:
+                if matriz.getCasilla(posX + i, posY) != FONDO_TABLERO:
                     sePuede = False
             else:
-                if mapa.getCasilla(posX, posY + i) != FONDO_TABLERO:
+                if matriz.getCasilla(posX, posY + i) != FONDO_TABLERO:
                     sePuede = False
     except IndexError:
         sePuede=False
     return sePuede
 
-def asignarHueco(posX, posY, longitud, esHorizontal):
+def asignarHueco(posX, posY, longitud, esHorizontal, matriz:tablero):
     """
     asgina los espacios a un barco en el tablero
     
@@ -87,9 +87,9 @@ def asignarHueco(posX, posY, longitud, esHorizontal):
     """
     for i in range(0, longitud):
         if esHorizontal:
-            mapa.setCasilla(posX + i, posY, HAY_BARCO)
+            matriz.setCasilla(posX + i, posY, HAY_BARCO)
         else:
-            mapa.setCasilla(posX, posY + i, HAY_BARCO)
+            matriz.setCasilla(posX, posY + i, HAY_BARCO)
 
 def crearNave(longitud, matriz:tablero):
     """
