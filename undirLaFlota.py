@@ -20,18 +20,18 @@ LONG_DESTRUCTORES = 2
 
 #colocare los barcos en posicion horizontal o vertical , donde caiga empujare
 #hacia dentro del tablero
-def colocarBarcos():
+def colocarBarcos(matriz:tablero):
     """
     recoge los datos de cantidad y longitud de los barcos y genera los barcos en mapa
     
     :param tablero:
     """
     for i in range(CANT_PORTAVIONES):
-        crearNave(LONG_PORTAVIONES)
+        crearNave(LONG_PORTAVIONES, matriz)
     for i in range(CANT_SUBMARINOS):
-        crearNave(LONG_SUBMARINOS)
+        crearNave(LONG_SUBMARINOS, matriz)
     for i in range(CANT_DESTRUCTORES):
-        crearNave(LONG_DESTRUCTORES)
+        crearNave(LONG_DESTRUCTORES, matriz)
 
 #caben los barcos?
 #compara el espacio de los barcos con el espacio de la cuadricula
@@ -117,8 +117,8 @@ def crearNave(longitud, matriz:tablero):
             posY = (posY + longitud) - matriz.getAlto()
 
     #comprobar superposicion de barcos
-    if hayHueco(posX, posY, longitud, horizontal):
-        asignarHueco(posX, posY, longitud, horizontal)
+    if hayHueco(posX, posY, longitud, horizontal, matriz):
+        asignarHueco(posX, posY, longitud, horizontal, matriz)
     else:
         crearNave(longitud, matriz)
 
@@ -174,7 +174,7 @@ TURNO = 0
 #inicializar mapa de juego y colocar barcos
 mapa = tablero(DIMENSION_MATRIZ_X, DIMENSION_MATRIZ_Y)
 mapa.fillWhitItem(FONDO_TABLERO)
-colocarBarcos()
+colocarBarcos(mapa)
 
 #tablero donde juega el jugaodor
 mapaJug = tablero(DIMENSION_MATRIZ_X, DIMENSION_MATRIZ_Y)
