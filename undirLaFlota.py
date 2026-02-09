@@ -91,7 +91,7 @@ def asignarHueco(posX, posY, longitud, esHorizontal):
         else:
             mapa.setCasilla(posX, posY + i, HAY_BARCO)
 
-def crearNave(longitud):
+def crearNave(longitud, matriz:tablero):
     """
     marca desde una posicion aleatoria vertical u horizontal en la tablero
     y marca en longitud, si superpone busca otro sitio aleatorio
@@ -101,26 +101,26 @@ def crearNave(longitud):
     """
     #seed de las posiciones 
     #establece un punto de inicio y si crece a la derecha o abajo segun longitud
-    posX = random.randint(0, mapa.getAncho())
-    posY = random.randint(0, mapa.getAlto())
+    posX = random.randint(0, matriz.getAncho())
+    posY = random.randint(0, matriz.getAlto())
     horizontal = esHorizontal()
 
     #arreglando las posiciones que se salen fuera de los bordes
     #empujarlos hacia dentro
     if horizontal:
         #horinzontal X
-        if posX + longitud > mapa.getAncho():
-            posX = (posX + longitud) - mapa.getAncho()
+        if posX + longitud > matriz.getAncho():
+            posX = (posX + longitud) - matriz.getAncho()
     else:
         #vertical Y
-        if posY + longitud > mapa.getAlto():
-            posY = (posY + longitud) - mapa.getAlto()
+        if posY + longitud > matriz.getAlto():
+            posY = (posY + longitud) - matriz.getAlto()
 
     #comprobar superposicion de barcos
     if hayHueco(posX, posY, longitud, horizontal):
         asignarHueco(posX, posY, longitud, horizontal)
     else:
-        crearNave(longitud)
+        crearNave(longitud, matriz)
 
 
 def esHorizontal():
